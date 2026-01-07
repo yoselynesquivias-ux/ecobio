@@ -1,0 +1,295 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ===== FONDO ===== */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #7de791, #f7c6d9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+/* ===== CAJAS ===== */
+.login-box,
+.content-box {
+    background: white;
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+    animation: fade 0.8s ease;
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    /* para login */
+}
+
+.content-box {
+    max-width: 950px;
+}
+
+/* ===== TITULO ECOBIO + ROBOTS ===== */
+.titulo-eco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin: 40px 0 30px;
+    flex-wrap: wrap;
+    /* para pantallas pequeñas */
+}
+
+/* TEXTO ECOBIO */
+.titulo-eco h1 {
+    margin: 0;
+    font-size: 44px;
+    font-weight: 900;
+    color: #2e7d32;
+}
+
+/* SOLO EL TEXTO SE ANIMA */
+.eco-text {
+    display: inline-block;
+    animation: ecoZoom 2s ease-in-out infinite alternate;
+}
+
+/* ROBOTS */
+.robot {
+    font-size: 58px;
+    line-height: 1;
+    user-select: none;
+}
+
+/* ===== TITULOS ===== */
+h2,
+h3,
+h4 {
+    text-align: center;
+    color: #2e7d32;
+}
+
+/* ===== INPUTS ===== */
+input {
+    width: 100%;
+    padding: 13px;
+    margin-top: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+}
+
+/* ===== BOTONES ===== */
+button,
+.btn {
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(135deg, #43a047, #f48fb1);
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #f06292, #ec407a);
+}
+
+/* ===== BOTÓN LOGIN ===== */
+.login-box button {
+    background: #43a047;
+    border-radius: 12px;
+    font-size: 15px;
+    margin-top: 18px;
+}
+
+.login-box button:hover {
+    background: #2e7d32;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: #ff276f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== SECCIONES ===== */
+.section {
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f1f8e9, #fce4ec);
+}
+
+/* ===== VENTAJAS / DESVENTAJAS ===== */
+.ventajas-desventajas {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ventajas,
+.desventajas {
+    flex: 1 1 45%;
+    background: #e8f5e9;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+/* ===== MATERIALES ===== */
+.materiales {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.reciclables,
+.no-reciclables {
+    flex: 1 1 45%;
+    background: #f1f8e9;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.materiales img {
+    width: 60%;
+    max-width: 180px;
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+/* ===== CENTROS ===== */
+.centro {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 16px;
+    background: white;
+    border-left: 6px solid #f91a64;
+}
+
+.centro img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-top: 12px;
+}
+
+/* ===== IMÁGENES DESCRIPTIVAS ===== */
+.section img[src*="compl"] {
+    width: 70%;
+    max-width: 350px;
+    display: block;
+    margin: 15px auto;
+    border-radius: 12px;
+    animation: slideLoop 3s ease-in-out infinite alternate;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* ===== LOGOUT ===== */
+.logout {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #f06292;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes ecoZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.25);
+    }
+}
+
+@keyframes slideLoop {
+    from {
+        transform: translateX(-10px);
+    }
+
+    to {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== MEDIA QUERIES ===== */
+/* Celulares */
+@media (max-width: 480px) {
+    .titulo-eco {
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .titulo-eco h1 {
+        font-size: 32px;
+    }
+
+    .robot {
+        font-size: 40px;
+    }
+
+    .ventajas,
+    .desventajas,
+    .reciclables,
+    .no-reciclables {
+        flex: 1 1 100%;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .titulo-eco h1 {
+        font-size: 36px;
+    }
+
+    .robot {
+        font-size: 48px;
+    }
+
+    .login-box {
+        max-width: 90%;
+    }
+}
