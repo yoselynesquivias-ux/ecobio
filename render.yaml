@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: ecobio
+    env: python
+    plan: free
+    branch: main   # 👈 tu rama principal
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
