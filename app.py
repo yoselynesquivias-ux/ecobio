@@ -55,7 +55,7 @@ def registro():
         finally:
             conn.close()
 
-    return render_template('registro.html')
+    return render_template('auth/registro.html')
 
 # -------- ACCEDER --------
 @app.route('/acceder', methods=['POST'])
