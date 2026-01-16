@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Verificación</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="contenedor-principal">
+        <div class="card">
+
+            <h2>Confirmar acción</h2>
+
+            {% if accion == 'editar' %}
+            <p>Para editar este usuario, ingresa tu contraseña</p>
+            {% else %}
+            <p>Para eliminar este usuario, ingresa tu contraseña</p>
+            {% endif %}
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <p style="color:red;">{{ messages[0] }}</p>
+            {% endif %}
+            {% endwith %}
+
+            <form method="POST">
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Confirmar</button>
+            </form>
+
+            <br>
+            <a href="/usuarios">Cancelar</a>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

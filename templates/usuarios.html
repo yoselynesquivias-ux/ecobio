@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios registrados</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="fondo-animado">
+
+    <div class="contenedor-principal">
+        <h1 class="titulo">Usuarios registrados</h1>
+        <form method="GET" action="{{ url_for('usuarios') }}" style="margin-bottom:20px;">
+            <input type="text" name="buscar" placeholder="Buscar por correo" value="{{ buscar }}" required>
+            <button type="submit">Buscar</button>
+            <a href="{{ url_for('usuarios') }}">Ver todos</a>
+        </form>
+
+
+        <table class="tabla-usuarios">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+
+            {% for u in usuarios %}
+            <tr>
+                <td>{{ u[0] }}</td>
+                <td>{{ u[1] }}</td>
+                <td>{{ u[2] }}</td>
+                <td>
+                    <a href="/verificar/editar/{{ u[0] }}">Editar</a> |
+                    <a href="/verificar/eliminar/{{ u[0] }}">Eliminar</a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href="{{ url_for('reciclaje') }}">Volver</a>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,252 +1,429 @@
+/* ===========================================================
+   ESTILO GLOBAL PREMIUM
+   =========================================================== */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* ===== FONDO ===== */
 body {
-    margin: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #7de791, #f7c6d9);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 15px;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.12), rgba(46, 204, 113, 0.07)), url('/static/fondo1.jpg') center/cover no-repeat fixed;
+    color: #1a1a1a;
+    transition: background 0.6s ease;
+    overflow-x: hidden;
 }
 
-/* ===== CAJAS ===== */
-.login-box,
-.content-box {
-    background: white;
-    padding: 28px;
-    border-radius: 20px;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
-    animation: fade 0.8s ease;
-    position: relative;
-    width: 100%;
-    max-width: 360px;
-    /* para login */
+/* ===========================================================
+   CONTENEDOR PRINCIPAL
+   =========================================================== */
+.contenedor-principal {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 50px 40px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.516);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.content-box {
-    max-width: 950px;
+.contenedor-principal:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
 }
 
-/* ===== TITULO ECOBIO + ROBOTS ===== */
-.titulo-eco {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
-    margin: 40px 0 30px;
-    flex-wrap: wrap;
-    /* para pantallas pequeñas */
-}
 
-/* TEXTO ECOBIO */
-.titulo-eco h1 {
-    margin: 0;
-    font-size: 44px;
-    font-weight: 900;
-    color: #2e7d32;
-}
 
-/* SOLO EL TEXTO SE ANIMA */
-.eco-text {
-    display: inline-block;
-    animation: ecoZoom 2s ease-in-out infinite alternate;
-}
-
-/* ROBOTS */
-.robot {
-    font-size: 58px;
-    line-height: 1;
-    user-select: none;
-}
-
-/* ===== TITULOS ===== */
-h2,
-h3,
-h4 {
-    text-align: center;
-    color: #2e7d32;
-}
-
-/* ===== INPUTS ===== */
-input {
-    width: 100%;
-    padding: 13px;
-    margin-top: 14px;
-    border-radius: 10px;
-    font-size: 15px;
-    border: 1px solid #ccc;
-}
-
-/* ===== BOTONES ===== */
-button,
-.btn {
-    padding: 12px 20px;
-    border-radius: 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    background: linear-gradient(135deg, #43a047, #f48fb1);
-    color: white;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
-}
-
-button:hover,
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(135deg, #f06292, #ec407a);
-}
-
-/* ===== BOTÓN LOGIN ===== */
-.login-box button {
-    background: #43a047;
-    border-radius: 12px;
-    font-size: 15px;
-    margin-top: 18px;
-}
-
-.login-box button:hover {
-    background: #2e7d32;
-}
-
-/* ===== LINKS ===== */
-a {
-    color: #ff276f;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* ===== SECCIONES ===== */
-.section {
-    margin: 30px 0;
-    padding: 20px;
-    border-radius: 15px;
-    background: linear-gradient(135deg, #f1f8e9, #fce4ec);
-}
-
-/* ===== VENTAJAS / DESVENTAJAS ===== */
-.ventajas-desventajas {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.ventajas,
-.desventajas {
-    flex: 1 1 45%;
-    background: #e8f5e9;
-    padding: 15px;
-    border-radius: 12px;
-}
-
-/* ===== MATERIALES ===== */
-.materiales {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.reciclables,
-.no-reciclables {
-    flex: 1 1 45%;
-    background: #f1f8e9;
-    padding: 18px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.materiales img {
-    width: 60%;
-    max-width: 180px;
-    border-radius: 10px;
-    margin-top: 12px;
-}
-
-/* ===== CENTROS ===== */
-.centro {
-    margin-top: 25px;
-    padding: 18px;
-    border-radius: 16px;
-    background: white;
-    border-left: 6px solid #f91a64;
-}
-
-.centro img {
-    width: 100%;
-    max-height: 220px;
-    object-fit: cover;
-    border-radius: 14px;
-    margin-top: 12px;
-}
-
-/* ===== IMÁGENES DESCRIPTIVAS ===== */
-.section img[src*="compl"] {
-    width: 70%;
-    max-width: 350px;
+/* ===========================================================
+   TITULO ROSA PREMIUM CON LINEA VERDE (CORREGIDO)
+   =========================================================== */
+.titulo {
     display: block;
-    margin: 15px auto;
-    border-radius: 12px;
-    animation: slideLoop 3s ease-in-out infinite alternate;
+    text-align: center;
+    /* centra el texto */
+    font-size: 4rem;
+    font-weight: 900;
+    color: #f06292 !important;
+    /* rosa sólido, fuerza override */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 auto 60px auto;
+    /* centrado con margen inferior */
+    line-height: 1.2;
+    padding-bottom: 15px;
+    position: relative;
+    animation: tituloSlideIn 1s ease-out forwards;
 }
 
-/* ===== MODAL ===== */
+/* Línea verde centrada */
+.titulo::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 5px;
+    background-color: #27ae60;
+    border-radius: 5px;
+}
+
+/* Animación suave desde arriba */
+@keyframes tituloSlideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===========================================================
+   SECCIONES FLEX PREMIUM
+   =========================================================== */
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.intercalado {
+    flex-direction: row;
+}
+
+.intercalado.reverse {
+    flex-direction: row-reverse;
+}
+
+/* ===========================================================
+   INFO BOX PREMIUM
+   =========================================================== */
+.info-box {
+    flex: 1;
+    padding: 30px;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #ffe6f0, #e6fff2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.info-box h2 {
+    font-size: 1.65rem;
+    margin-bottom: 18px;
+    color: #27ae60;
+    font-weight: 700;
+}
+
+.info-box p,
+.info-box ul {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #1a1a1a;
+}
+
+.info-box ul li {
+    margin-bottom: 10px;
+}
+
+/* ===========================================================
+   IMÁGENES PREMIUM
+   =========================================================== */
+.img-seccion {
+    flex: 1;
+    max-width: 500px;
+    border-radius: 25px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    transition: transform 0.45s ease, filter 0.45s ease;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.2)) brightness(1.05);
+    overflow: hidden;
+}
+
+.img-seccion:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.25)) brightness(1.1);
+}
+
+.img-mini {
+    max-width: 120px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.img-mini:hover {
+    transform: scale(1.12);
+    filter: brightness(1.05);
+}
+
+/* ===========================================================
+   BOTONES PREMIUM
+   =========================================================== */
+button {
+    background: linear-gradient(135deg, #ff6b81, #32cd99);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    display: inline-block;
+    text-align: center;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff85a1, #27ae60);
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+}
+
+/* ===========================================================
+   CONTENEDOR LOGIN / REGISTRO PREMIUM
+   =========================================================== */
+.login-box,
+.register-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    margin: 80px auto;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    /* fondo blanco translúcido */
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    transition: all 0.35s ease;
+}
+
+.login-box:hover,
+.register-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+/* ===========================================================
+   TITULO ROSA CON LINEA VERDE AJUSTADO
+   =========================================================== */
+.titulo {
+    display: block;
+    text-align: center;
+    font-weight: 900;
+    color: #f06292 !important;
+    /* rosa sólido */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    position: relative;
+    margin: 0 auto 20px auto;
+    /* espacio debajo */
+    padding-bottom: 8px;
+}
+
+/* Tamaño adaptativo según contenedor */
+.login-box .titulo {
+    font-size: clamp(1.8rem, 5vw, 2rem);
+}
+
+.register-box .titulo {
+    font-size: clamp(2rem, 6vw, 2.2rem);
+}
+
+/* Línea verde centrada */
+.titulo::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 3px;
+    background-color: #27ae60;
+    border-radius: 5px;
+}
+
+.login-box .titulo::after {
+    width: 80px;
+}
+
+.register-box .titulo::after {
+    width: 100px;
+}
+
+/* Animación suave de entrada */
+@keyframes tituloSlideIn {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.titulo {
+    animation: tituloSlideIn 0.8s ease-out forwards;
+}
+
+/* ===========================================================
+   MODALES / INFO OVERLAY PREMIUM
+   =========================================================== */
+.info-overlay,
 .modal {
     display: none;
     position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    padding: 30px 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+    min-width: 300px;
+    max-width: 480px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-overlay p,
+.modal p {
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.info-overlay button,
+.modal button {
+    margin: 6px 10px 0 10px;
+    background: linear-gradient(135deg, #ff6b81, #32cd99);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.35s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.info-overlay button:hover,
+.modal button:hover {
+    background: linear-gradient(135deg, #ff85a1, #27ae60);
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes overlayShow {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -55%) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.info-overlay.show,
+.modal.show {
+    display: block;
+    animation: overlayShow 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* =========================================================
+   LOGIN + REGISTRO — FONDO ANIMADO SOLO AQUÍ
+   ========================================================= */
+body.auth-page {
+    min-height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
+
+    background: linear-gradient(120deg,
+            #b7f8db,
+            #ffd6e8,
+            #b7f8db);
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
 }
 
-.modal img {
-    max-width: 90%;
-    max-height: 90%;
-}
-
-/* ===== LOGOUT ===== */
-.logout {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    color: #f06292;
-}
-
-/* ===== ANIMACIONES ===== */
-@keyframes ecoZoom {
-    from {
-        transform: scale(1);
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
     }
 
-    to {
-        transform: scale(1.25);
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
 
-@keyframes slideLoop {
-    from {
-        transform: translateX(-10px);
-    }
+/* =========================================================
+   TARJETA LOGIN / REGISTRO
+   ========================================================= */
+.login-box {
+    width: 360px;
+    padding: 45px 35px;
+    border-radius: 28px;
+    text-align: center;
 
-    to {
-        transform: translateX(10px);
-    }
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+
+    animation: fadeUp 0.9s ease;
 }
 
-@keyframes fade {
+@keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
 
     to {
@@ -255,41 +432,352 @@ a:hover {
     }
 }
 
-/* ===== MEDIA QUERIES ===== */
-/* Celulares */
-@media (max-width: 480px) {
-    .titulo-eco {
-        gap: 20px;
-        flex-direction: column;
-    }
-
-    .titulo-eco h1 {
-        font-size: 32px;
-    }
-
-    .robot {
-        font-size: 40px;
-    }
-
-    .ventajas,
-    .desventajas,
-    .reciclables,
-    .no-reciclables {
-        flex: 1 1 100%;
-    }
+/* =========================================================
+   TEXTO
+   ========================================================= */
+.login-box h2 {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #27ae60, #ff6f91);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
 }
 
-/* Tablets */
-@media (max-width: 768px) {
-    .titulo-eco h1 {
-        font-size: 36px;
-    }
+.login-box p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 22px;
+}
 
-    .robot {
-        font-size: 48px;
-    }
+/* =========================================================
+   INPUTS
+   ========================================================= */
+.login-box input {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    transition: 0.3s;
+}
 
-    .login-box {
-        max-width: 90%;
-    }
+.login-box input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.3);
+}
+
+/* =========================================================
+   BOTÓN
+   ========================================================= */
+.login-box button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 16px;
+    border: none;
+    background: linear-gradient(135deg, #27ae60, #ff6f91);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   MENSAJES
+   ========================================================= */
+.login-box .error {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.login-box .success {
+    color: #1e8449;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+.login-box a {
+    color: #ff6f91;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-box a:hover {
+    color: #27ae60;
+}
+
+.barra-superior {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+
+    z-index: 1000;
+    /* 👈 CLAVE */
+}
+
+
+.barra-superior a {
+    display: inline-block;
+}
+
+
+.cerrar-sesion {
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.cerrar-sesion:hover {
+    background: #f8bbd0;
+    color: #1b5e20;
+}
+
+/* ====== FIX CUESTIONARIO ====== */
+#modal-cuestionario .modal-content {
+    max-width: 600px;
+    width: 90%;
+    text-align: left;
+}
+
+#modal-cuestionario label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#modal-cuestionario textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #c8e6c9;
+    resize: none;
+    font-family: inherit;
+    margin-top: 6px;
+}
+
+#modal-cuestionario button {
+    margin-top: 15px;
+}
+
+/* ================= MENU USUARIO (SUPERIOR DERECHA) ================= */
+
+.menu-usuario {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+
+    display: flex;
+    flex-direction: column;
+    /* ← CLAVE */
+    gap: 12px;
+    /* separación vertical */
+    align-items: flex-end;
+}
+
+.menu-usuario a {
+    display: inline-block;
+}
+
+
+
+/* -------- Cerrar sesión -------- */
+.menu-usuario .logout {
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.menu-usuario .logout:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* -------- Tres líneas decorativas -------- */
+.menu-usuario::after {
+    content: "";
+    width: 35px;
+    height: 2px;
+    background: #ffffff;
+    box-shadow:
+        0 6px 0 #ffffff,
+        0 12px 0 #ffffff;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+/* -------- Botón Usuarios -------- */
+.btn-usuarios {
+    margin-top: 12px;
+    padding: 8px 18px;
+    background: linear-gradient(135deg, #81c784, #f8bbd0);
+    color: #1b5e20;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.btn-usuarios:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== BARRA SUPERIOR ===== */
+.barra-superior {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    display: flex;
+    flex-direction: column;
+    /* ⬅️ para que uno quede abajo del otro */
+    gap: 12px;
+    align-items: flex-end;
+}
+
+/* ===== BOTÓN CERRAR SESIÓN ===== */
+.cerrar-sesion {
+    text-decoration: none;
+    background: white;
+    color: #2e7d32;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.cerrar-sesion:hover {
+    background: #2e7d32;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ===== BOTÓN VER USUARIOS ===== */
+.btn-usuarios {
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 600;
+    color: white;
+
+    background: linear-gradient(135deg, #7ed957, #ff9aa2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
+    transition: all 0.3s ease;
+}
+
+.btn-usuarios:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== BUSCADOR USUARIOS ===== */
+form[action*="usuarios"] {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+form[action*="usuarios"] input[type="text"] {
+    padding: 12px 18px;
+    border-radius: 20px;
+    border: none;
+    width: 260px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+form[action*="usuarios"] input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(152, 250, 193, 0.3);
+}
+
+form[action*="usuarios"] button {
+    padding: 12px 26px;
+    border-radius: 22px;
+    border: none;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    background: linear-gradient(135deg, #71eaa3, #ff6f91);
+    transition: 0.3s;
+}
+
+form[action*="usuarios"] button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+form[action*="usuarios"] a {
+    font-weight: 600;
+    color: #27ae60;
+    text-decoration: none;
+}
+
+form[action*="usuarios"] a:hover {
+    text-decoration: underline;
+}
+
+/* ===== TABLA USUARIOS ===== */
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Encabezados */
+.tabla-usuarios th {
+    padding: 16px;
+    background: linear-gradient(135deg, #85f4b3, #f994ac);
+    color: rgb(8, 8, 8);
+    font-weight: 700;
+    text-align: left;
+    font-size: 15px;
+}
+
+/* Filas */
+.tabla-usuarios td {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Alternar filas */
+.tabla-usuarios tr:nth-child(even) {
+    background: rgba(240, 240, 240, 0.8);
+}
+
+.tabla-usuarios tr:hover {
+    background: rgba(255, 228, 236, 0.7);
 }

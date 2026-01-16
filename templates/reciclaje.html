@@ -3,423 +3,288 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ECOBIO | Reciclaje</title>
+    <title>ECOBIO</title>
     <link rel="stylesheet" href="/static/style.css">
-
-    <style>
-        /* ===================== BOTÓN CERRAR SESIÓN ===================== */
-        .logout {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: #f48fb1;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        /* ===================== TÍTULO CON ROBOTS ===================== */
-        .titulo-eco {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .titulo-eco h1 span {
-            display: inline-block;
-            animation: zoomTitulo 2s infinite alternate;
-        }
-
-        .robot {
-            font-size: 50px;
-        }
-
-        @keyframes zoomTitulo {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(1.15);
-            }
-        }
-
-        /* ===================== MODALES ===================== */
-        .modal,
-        .modal-juego,
-        .datos-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        /* ===================== CAJAS ===================== */
-        .juego-box,
-        .datos-card {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 450px;
-            text-align: center;
-        }
-
-        /* ===================== BOTONES ===================== */
-        .btn {
-            margin: 10px;
-            padding: 12px 20px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            background: linear-gradient(135deg, #43a047, #f48fb1);
-            color: white;
-        }
-
-        /* ===================== DATOS CURIOSOS ===================== */
-        .datos-box {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .datos-nav button {
-            margin: 10px;
-        }
-
-        /* ===================== TEMPORIZADOR ===================== */
-        .timer {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        .alerta {
-            animation: parpadeo 0.8s infinite;
-            border: 3px solid #d32f2f;
-        }
-
-        @keyframes parpadeo {
-            0% {
-                background: #ffcdd2;
-            }
-
-            50% {
-                background: white;
-            }
-
-            100% {
-                background: #ffcdd2;
-            }
-        }
-    </style>
 </head>
 
-<body>
+<body class="fondo-animado">
 
-    <div class="content-box">
+    <!-- ================= CONTENEDOR GENERAL ================= -->
+    <div class="contenedor-principal">
 
-        <a href="/" class="logout">Cerrar sesión</a>
-
-        <div class="titulo-eco">
-            <span class="robot">🤖</span>
-            <h1><span>♻️ ECOBIO ♻️</span></h1>
-            <span class="robot">🤖</span>
+        <!-- ===== BARRA SUPERIOR ===== -->
+        <div class="barra-superior">
+            <a href="{{ url_for('login') }}" class="cerrar-sesion">Cerrar sesión</a>
+            <a href="/usuarios" class="btn-usuarios">Ver usuarios registrados</a>
         </div>
 
-        <p style="text-align:center;">🌎 “El planeta no necesita héroes, necesita personas conscientes.” 🌎</p>
+        <h1 class="titulo">🌱 ECOBIO 🌱</h1>
 
-        <!-- ===================== QUÉ ES ===================== -->
+        <!-- ================= QUE ES ================= -->
+        <div class="section intercalado">
+            <img src="static/compl1.webp" class="img-seccion">
+
+            <div class="info-box">
+                <h2>¿Qué es el reciclaje?</h2>
+                <p>
+                    El reciclaje es el proceso mediante el cual los residuos se transforman
+                    en nuevos productos o materiales.
+                </p>
+
+                <details>
+                    <summary>Leer más</summary>
+                    <p>
+                        El reciclaje ayuda a reducir la cantidad de basura que llega a los
+                        rellenos sanitarios, disminuye la contaminación ambiental y permite
+                        reutilizar recursos naturales. Gracias al reciclaje se ahorra energía,
+                        se reduce el consumo de agua y se protege la biodiversidad del planeta.
+                        Además, fomenta la responsabilidad social y ambiental en las personas,
+                        creando hábitos sostenibles desde edades tempranas.
+                    </p>
+                </details>
+            </div>
+        </div>
+
+        <!-- ================= IMPORTANCIA ================= -->
+        <div class="section intercalado">
+            <div class="info-box">
+                <h2>Importancia del reciclaje</h2>
+                <p>
+                    Reciclar es fundamental para cuidar el medio ambiente y la salud humana.
+                </p>
+
+                <details>
+                    <summary>Leer más</summary>
+                    <p>
+                        La importancia del reciclaje radica en que reduce la explotación de
+                        recursos naturales, disminuye la contaminación del aire, agua y suelo,
+                        y contribuye a combatir el cambio climático. También genera empleos,
+                        impulsa la economía circular y promueve comunidades más limpias y
+                        responsables.
+                    </p>
+                </details>
+            </div>
+
+            <img src="static/compl3.jpg" class="img-seccion">
+        </div>
+
+        <!-- ================= COMO FUNCIONA ================= -->
+        <div class="section intercalado">
+            <img src="static/compl2.jpg" class="img-seccion">
+
+            <div class="info-box">
+                <h2>¿Cómo funciona?</h2>
+                <p>
+                    El proceso del reciclaje sigue varios pasos importantes.
+                </p>
+
+                <details>
+                    <summary>Leer más</summary>
+                    <p>
+                        Primero, los residuos se separan según su tipo. Después se recolectan
+                        y se llevan a plantas de reciclaje donde se limpian y procesan.
+                        Finalmente, los materiales se transforman en nuevos productos.
+                    </p>
+                </details>
+            </div>
+        </div>
+
+        <!-- ================= VENTAJAS Y DESVENTAJAS ================= -->
+        <div class="section dos-columnas">
+            <div class="info-box">
+                <h2>Desventajas</h2>
+                <ul>
+                    <li>Requiere separación adecuada</li>
+                    <li>Puede ser costoso</li>
+                    <li>Falta de cultura ambiental</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h2>Ventajas</h2>
+                <ul>
+                    <li>Reduce contaminación</li>
+                    <li>Ahorra recursos</li>
+                    <li>Protege el medio ambiente</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- ================= RECICLABLES ================= -->
+        <div class="section dos-columnas">
+            <div class="info-box">
+                <h2>Reciclables</h2>
+                <img src="static/reciclable1.webp" class="img-mini">
+                <p>Papel, cartón, vidrio, plástico, metal.</p>
+            </div>
+
+            <div class="info-box">
+                <h2>No reciclables</h2>
+                <img src="static/noreciclable1.jpg" class="img-mini">
+                <p>Pañales, residuos orgánicos, papel sucio.</p>
+            </div>
+        </div>
+
+        <!-- ================= MAPA ================= -->
         <div class="section">
-            <h3>¿Qué es el reciclaje?</h3>
-            <p>
-                El reciclaje es el proceso mediante el cual los materiales de desecho como el plástico, el vidrio,
-                el papel y los metales son recolectados y transformados en nuevos productos. Este proceso reduce
-                significativamente la cantidad de residuos que llegan a los vertederos, disminuye la contaminación
-                y contribuye al ahorro de recursos naturales.
-            </p>
-            <img src="static/compl1.webp">
+            <h2>Centros de reciclaje cercanos</h2>
+            <iframe src="https://www.google.com/maps?q=centros%20de%20reciclaje&output=embed" width="100%" height="350"
+                style="border:0;" loading="lazy">
+            </iframe>
         </div>
 
-        <!-- ===================== CÓMO FUNCIONA ===================== -->
-        <div class="section">
-            <h3>¿Cómo funciona el reciclaje?</h3>
-            <p>
-                El reciclaje comienza con la separación de residuos en el hogar o centros de acopio. Posteriormente
-                los materiales son limpiados, clasificados y procesados para convertirse en nuevos productos.
-                Cada material tiene un proceso distinto, pero todos buscan reducir el impacto ambiental.
-            </p>
-            <img src="static/compl2.jpg">
+        <!-- ================= BOTONES ================= -->
+        <div class="botones">
+            <button onclick="abrirDatos()">Datos curiosos</button>
+            <button onclick="abrirJuego()">Juego</button>
+            <button onclick="abrirCuestionario()">Cuestionario</button>
         </div>
 
+    </div>
 
-        <!-- ===================== CENTROS ===================== -->
-        <div class="section">
-            <h3>Centros de reciclaje en Chimalhuacán</h3>
-
-            <div class="centro">
-                <h4>Centro Organización Popular</h4>
-                <p>📍 Av. Organización Popular</p>
-                <img src="static/centro1.jpeg" onclick="abrirImagen(this.src)">
-            </div>
-
-            <div class="centro">
-                <h4>Centro Patos</h4>
-                <p>📍 Av. Patos</p>
-                <img src="static/centro2.jpeg" onclick="abrirImagen(this.src)">
-            </div>
-
-
-
-            <div class="centro">
-                <h4>Centro Herreros</h4>
-                <p>📍 Organización Popular</p>
-                <img src="static/centro4.jpeg" onclick="abrirImagen(this.src)">
-
-            </div>
-
-            <!-- ===================== VENTAJAS / DESVENTAJAS ===================== -->
-            <div class="section">
-                <div class="ventajas-desventajas">
-                    <div class="ventajas">
-                        <h4>Ventajas del reciclaje</h4>
-                        <ul>
-                            <li>Reduce la contaminación</li>
-                            <li>Ahorra energía</li>
-                            <li>Protege recursos naturales</li>
-                            <li>Disminuye residuos</li>
-                        </ul>
-                    </div>
-
-                    <div class="desventajas">
-                        <h4>Desventajas del reciclaje</h4>
-                        <ul>
-                            <li>Requiere separación</li>
-                            <li>No todo es reciclable</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===================== MATERIALES ===================== -->
-            <div class="section">
-                <h3>Materiales</h3>
-                <div class="materiales">
-                    <div class="reciclables">
-                        <h4>Reciclables</h4>
-                        <ul>
-                            <li>Papel</li>
-                            <li>Cartón</li>
-                            <li>Plástico</li>
-                            <li>Vidrio</li>
-                        </ul>
-                        <img src="static/reciclable1.webp">
-                    </div>
-
-                    <div class="no-reciclables">
-                        <h4>No reciclables</h4>
-                        <ul>
-                            <li>Pañales</li>
-                            <li>Plásticos sucios</li>
-                            <li>Cerámica</li>
-                            <li>Residuos peligrosos</li>
-                        </ul>
-                        <img src="static/noreciclable1.jpg">
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- ===================== DATOS CURIOSOS ===================== -->
-            <div class="datos-box">
-                <button class="btn" onclick="abrirDatos()">🌱 Ver datos curiosos</button>
-            </div>
-
-            <div id="datos-modal" class="datos-modal">
-                <div class="datos-card" id="datos-card">
-                    <p id="dato-texto"></p>
-                    <div class="datos-nav">
-                        <button onclick="anteriorDato()">⬅</button>
-                        <button onclick="siguienteDato()">➡</button>
-                    </div>
-                    <button class="btn" onclick="cerrarDatos()">Cerrar</button>
-                </div>
-            </div>
-
-            <!-- ===================== CUESTIONARIO ===================== -->
-            <div style="text-align:center;">
-                <button class="btn" onclick="mostrarCuestionario()">📝 Mini cuestionario</button>
-                <button class="btn" onclick="mostrarJuego()">🎮 ¿Reciclable o no?</button>
-            </div>
-
-            <div id="cuestionario" class="modal-juego">
-                <div class="juego-box">
-                    <h3 id="pregunta"></h3>
-                    <textarea id="respuesta" rows="4" style="width:100%;"></textarea>
-                    <button class="btn" onclick="siguientePregunta()">Siguiente</button>
-                    <p id="contador"></p>
-                </div>
-            </div>
-
-            <!-- ===================== JUEGO ===================== -->
-            <div id="juego" class="modal-juego">
-                <div class="juego-box" id="juego-box">
-                    <h3>¿Reciclable o no?</h3>
-                    <div id="temporizador" class="timer">⏱️ 10</div>
-                    <h4 id="nombre"></h4>
-                    <button class="btn" onclick="evaluar(true)">Reciclable</button>
-                    <button class="btn" onclick="evaluar(false)">No reciclable</button>
-                </div>
-            </div>
-
-            <!-- ===================== MODAL IMAGEN ===================== -->
-            <div id="modal" class="modal" onclick="cerrarImagen()">
-                <img id="modal-img">
-            </div>
-
-            <!-- ===================== SCRIPTS ===================== -->
-            <script>
-                /* ===== IMÁGENES ===== */
-                function abrirImagen(src) {
-                    document.getElementById("modal").style.display = "flex";
-                    document.getElementById("modal-img").src = src;
-                }
-                function cerrarImagen() {
-                    document.getElementById("modal").style.display = "none";
-                }
-
-                /* ===== DATOS ===== */
-                const datos = [
-                    "Reciclar una lata de aluminio ahorra suficiente energía para mantener una televisión encendida por 3 horas 📺",
-                    "El papel reciclado usa hasta un 60% menos de energía que el papel nuevo 🌳",
-                    "Una botella de plástico puede tardar más de 400 años en desaparecer 😱",
-                    "El vidrio es 100% reciclable y nunca pierde calidad ♻️",
-                    "Reciclar ayuda a reducir el calentamiento global 🌎",
-                    "Cada tonelada de papel reciclado salva aproximadamente 17 árboles 🌲",
-                    "Separar la basura en casa es el primer paso para cuidar el planeta 🏠",
-                    "El reciclaje reduce la cantidad de basura en rellenos sanitarios 🚯",
-                    "Los residuos mal manejados contaminan ríos y mares 🌊",
-                    "Pequeñas acciones diarias pueden generar grandes cambios 💚",
-                    "El reciclaje también crea empleos y ayuda a la economía 💼",
-                    "Si todos recicláramos, el planeta tendría un futuro más limpio ✨"
-                ];
-
-                const colores = ["#a5d6a7", "#f8bbd0", "#bbdefb", "#ffe082", "#d1c4e9",
-                    "#c8e6c9", "#ffccbc", "#b2ebf2", "#e6ee9c", "#f48fb1"];
-                let d = 0;
-
-                function abrirDatos() {
-                    document.getElementById("datos-modal").style.display = "flex";
-                    mostrarDato();
-                }
-                function cerrarDatos() {
-                    document.getElementById("datos-modal").style.display = "none";
-                }
-                function mostrarDato() {
-                    document.getElementById("dato-texto").innerText = datos[d];
-                    document.getElementById("datos-card").style.background = colores[d];
-                }
-                function siguienteDato() {
-                    d = (d + 1) % datos.length;
-                    mostrarDato();
-                }
-                function anteriorDato() {
-                    d = (d - 1 + datos.length) % datos.length;
-                    mostrarDato();
-                }
-
-                /* ===== CUESTIONARIO ===== */
-                const preguntas = [
-                    "¿Qué es el reciclaje?",
-                    "¿Por qué es importante?",
-                    "Menciona dos materiales reciclables",
-                    "¿Cómo ayudas al planeta?",
-                    "¿Qué aprendiste hoy?"
-                ];
-                let p = 0;
-
-                function mostrarCuestionario() {
-                    p = 0;
-                    document.getElementById("cuestionario").style.display = "flex";
-                    cargarPregunta();
-                }
-                function cargarPregunta() {
-                    document.getElementById("pregunta").innerText = preguntas[p];
-                    document.getElementById("respuesta").value = "";
-                    document.getElementById("contador").innerText =
-                        "Pregunta " + (p + 1) + " de " + preguntas.length;
-                }
-                function siguientePregunta() {
-                    if (document.getElementById("respuesta").value.trim() === "") {
-                        alert("Responde primero");
-                        return;
-                    }
-                    p++;
-                    if (p < preguntas.length) {
-                        cargarPregunta();
-                    } else {
-                        alert("¡Gracias por responder!");
-                        document.getElementById("cuestionario").style.display = "none";
-                    }
-                }
-
-                /* ===== JUEGO ===== */
-                const items = [
-                    { nombre: "Cáscara de huevo", reciclable: true },
-                    { nombre: "Botella", reciclable: true },
-                    { nombre: "Pañal", reciclable: false },
-                    { nombre: "Lata", reciclable: true },
-                    { nombre: "Vidrio", reciclable: true },
-                    { nombre: "Espejo", reciclable: false },
-                    { nombre: "Cartón", reciclable: true },
-                    { nombre: "Popote", reciclable: false },
-                    { nombre: "Papel", reciclable: true },
-                    { nombre: "Juguete roto", reciclable: false }
-                ];
-                let i = 0, score = 0, tiempo = 10, reloj;
-
-                function mostrarJuego() {
-                    i = 0; score = 0;
-                    document.getElementById("juego").style.display = "flex";
-                    cargarItem();
-                }
-                function cargarItem() {
-                    tiempo = 10;
-                    document.getElementById("juego-box").classList.remove("alerta");
-                    document.getElementById("temporizador").innerText = "⏱️ 10";
-                    document.getElementById("nombre").innerText = items[i].nombre;
-                    iniciarTiempo();
-                }
-                function iniciarTiempo() {
-                    clearInterval(reloj);
-                    reloj = setInterval(() => {
-                        tiempo--;
-                        document.getElementById("temporizador").innerText = "⏱️ " + tiempo;
-                        if (tiempo <= 3) {
-                            document.getElementById("juego-box").classList.add("alerta");
-                        }
-                        if (tiempo === 0) siguiente();
-                    }, 1000);
-                }
-                function evaluar(res) {
-                    clearInterval(reloj);
-                    if (res === items[i].reciclable) score++;
-                    siguiente();
-                }
-                function siguiente() {
-                    i++;
-                    if (i < items.length) cargarItem();
-                    else {
-                        alert("Puntaje: " + score + "/10");
-                        document.getElementById("juego").style.display = "none";
-                    }
-                }
-            </script>
-
+    <!-- ================= DATOS CURIOSOS ================= -->
+    <div class="modal" id="modal-datos">
+        <div class="modal-content" id="dato-box">
+            <button onclick="anterior()">⬅</button>
+            <span id="dato-texto"></span>
+            <button onclick="siguiente()">➡</button>
+            <br><br>
+            <button onclick="cerrarDatos()">Cerrar</button>
         </div>
+    </div>
+
+    <!-- ================= JUEGO ================= -->
+    <div class="modal" id="modal-juego">
+        <div class="modal-content">
+            <h2>¿Reciclable o no?</h2>
+            <p id="objeto"></p>
+            <button onclick="responder(true)">Reciclable</button>
+            <button onclick="responder(false)">No reciclable</button>
+            <p id="resultado"></p>
+            <button onclick="cerrarJuego()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- ================= CUESTIONARIO ================= -->
+    <div class="modal" id="modal-cuestionario">
+        <div class="modal-content">
+            <h2>Cuestionario</h2>
+
+            <label>¿Qué piensas sobre el reciclaje?</label>
+            <textarea></textarea>
+
+            <label>¿Qué harías para mejorar tu comunidad?</label>
+            <textarea></textarea>
+
+            <label>¿Cómo puedes ayudar al planeta?</label>
+            <textarea></textarea>
+
+            <button onclick="enviarCuestionario()">Enviar</button>
+            <p id="mensaje"></p>
+            <button onclick="cerrarCuestionario()">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- ================= SCRIPT ================= -->
+    <script>
+        const datos = [
+            "Reciclar ahorra energía",
+            "El aluminio se recicla rápidamente",
+            "El papel reduce la tala de árboles",
+            "Reciclar cuida el agua",
+            "Protege a los animales",
+            "Mejora la calidad de vida",
+            "Ayuda al planeta"
+        ];
+
+        let i = 0;
+        const colores = ["#a5d6a7", "#81c784", "#66bb6a", "#4caf50"];
+
+        function abrirDatos() {
+            document.getElementById("modal-datos").style.display = "flex";
+            mostrarDato();
+        }
+
+        function mostrarDato() {
+            document.getElementById("dato-texto").innerText = datos[i];
+            document.getElementById("dato-box").style.background =
+                colores[i % colores.length];
+        }
+
+        function siguiente() {
+            i = (i + 1) % datos.length;
+            mostrarDato();
+        }
+
+        function anterior() {
+            i = (i - 1 + datos.length) % datos.length;
+            mostrarDato();
+        }
+
+        function cerrarDatos() {
+            document.getElementById("modal-datos").style.display = "none";
+        }
+
+        const objetos = [
+            { nombre: "Botella", rec: true },
+            { nombre: "Pañal", rec: false },
+            { nombre: "Lata", rec: true },
+            { nombre: "Cáscara", rec: false }
+        ];
+
+        let j = 0;
+
+        function abrirJuego() {
+            document.getElementById("modal-juego").style.display = "flex";
+            document.getElementById("objeto").innerText = objetos[j].nombre;
+        }
+
+        function responder(r) {
+            if (r === objetos[j].rec) {
+                document.getElementById("resultado").innerText = "Correcto";
+            } else {
+                document.getElementById("resultado").innerText = "Incorrecto";
+            }
+            j = (j + 1) % objetos.length;
+            document.getElementById("objeto").innerText = objetos[j].nombre;
+        }
+
+        function cerrarJuego() {
+            document.getElementById("modal-juego").style.display = "none";
+        }
+
+        function abrirCuestionario() {
+            document.getElementById("modal-cuestionario").style.display = "flex";
+        }
+        function enviarCuestionario() {
+            const modal = document.getElementById("modal-cuestionario");
+            const respuestas = modal.querySelectorAll("textarea");
+            const mensaje = document.getElementById("mensaje");
+
+            let incompleto = false;
+
+            respuestas.forEach(textarea => {
+                if (textarea.value.trim() === "") {
+                    incompleto = true;
+                }
+            });
+
+            if (incompleto) {
+                mensaje.innerText = "Por favor responde todas las preguntas antes de enviar.";
+                mensaje.style.color = "#c62828";
+            } else {
+                mensaje.innerText = "¡Gracias por participar!";
+                mensaje.style.color = "#2e7d32";
+            }
+        }
+
+
+        function cerrarCuestionario() {
+            document.getElementById("modal-cuestionario").style.display = "none";
+        }
+    </script>
 
 </body>
 
